@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <meta name="description" content="{{ description }}">
+    {% include 'partials/opengraph.html' %}
+    <link rel="icon" href="{{ url_for('static', path='/jellyfish.svg') }}">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <a href="/">cnschn's videos</a>
+      <img src="{{ url_for('static', path='/jellyfish.svg') }}">
+    </header>
+    {% block content %}{% endblock %}
+    <footer>
+      <p>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a>, licensed <a href="http://creativecommons.org/licenses/by/3.0/"  title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+</p>
+    </footer>
+  </body>
+</html>

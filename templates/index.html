@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main>
+  {% for video in videos %}
+  <article>
+    <div>
+      <a href="{{ url_for('read_video', video_id=video.guid) }}">
+        <img src="https://{{ bunny.pull_zone }}.b-cdn.net/{{ video.guid }}/{{ video.thumbnailFileName }}">
+      </a>
+      <span class="runtime">{{ video.length | format_runtime }}</span>
+    </div>
+    <aside>
+      <h2><a href="{{ url_for('read_video', video_id=video.guid) }}">{{ video.title }}</a></h2>
+	<ul class="video-tags">
+	  {% for tag in video.tags %}<li>{{ tag }}</li>{% endfor %}
+	</ul>
+      {{ video.descriptionShort | safe }}
+    </aside>
+  </article>
+  {% endfor %}
+  </main>
+{% endblock %}
